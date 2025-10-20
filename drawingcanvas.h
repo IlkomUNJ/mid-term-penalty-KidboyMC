@@ -22,6 +22,14 @@ private:
     const int WINDOW_WIDTH=600;
     const int WINDOW_HEIGHT=400;
 
+    // Vektor untuk menyimpan pola-pola ideal
+    QVector<CustomMatrix> m_segment_detectors;
+    // Vektor untuk menyimpan titik tengah segmen yang terdeteksi
+    QVector<QPoint> m_detected_segments;
+
+    // Fungsi untuk inisialisasi pola detektor
+    void initializeDetectors();
+
 public:
     explicit DrawingCanvas(QWidget *parent = nullptr);
 

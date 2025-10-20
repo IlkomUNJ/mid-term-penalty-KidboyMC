@@ -2,6 +2,7 @@
 #define CUSTOMMATRIX_H
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -32,6 +33,38 @@ public:
             }
         }
     }
+
+    void print() const {
+        cout << "--- Window ---" << endl;
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                cout << (mat[i][j] ? "1 " : "0 ");
+            }
+            cout << endl;
+        }
+        cout << "--------------" << endl;
+    }
+
+    bool isEmpty() const {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (mat[i][j]) return false;
+            }
+        }
+        return true;
+    }
+
+    bool operator==(const CustomMatrix& other) const {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (mat[i][j] != other.mat[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 };
 
 #endif // CUSTOMMATRIX_H
